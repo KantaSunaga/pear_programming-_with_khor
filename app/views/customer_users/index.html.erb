@@ -1,0 +1,28 @@
+<table>
+  <thead>
+    <tr>
+      <th>first_name</th>
+      <th>last_name</th>
+      <th>email</th>
+      <th>phone</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.first_name%></td>
+        <td><%= user.last_name%></td>
+        <td><%= user.email %></td>
+        <td><%= user.phone%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div>
+ <h4>Import</h4>
+   <%=form_tag import_customer_users_path, multipart: true do%>
+     <%=file_field_tag :file%>
+     <%=submit_tag "Import"%>
+   <% end %>
+</div>
